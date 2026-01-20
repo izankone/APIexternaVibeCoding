@@ -1,0 +1,8 @@
+C:\Users\S2-PC00\Documents\GitHub\APIexternaVibeCoding\APIexternaVibeCoding\obj\Debug\net8.0\APIexternaVibeCoding.csproj.AssemblyReference.cache
+C:\Users\S2-PC00\Documents\GitHub\APIexternaVibeCoding\APIexternaVibeCoding\obj\Debug\net8.0\APIexternaVibeCoding.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\S2-PC00\Documents\GitHub\APIexternaVibeCoding\APIexternaVibeCoding\obj\Debug\net8.0\APIexternaVibeCoding.AssemblyInfoInputs.cache
+C:\Users\S2-PC00\Documents\GitHub\APIexternaVibeCoding\APIexternaVibeCoding\obj\Debug\net8.0\APIexternaVibeCoding.AssemblyInfo.cs
+C:\Users\S2-PC00\Documents\GitHub\APIexternaVibeCoding\APIexternaVibeCoding\obj\Debug\net8.0\APIexternaVibeCoding.csproj.CoreCompileInputs.cache
+C:\Users\S2-PC00\Documents\GitHub\APIexternaVibeCoding\APIexternaVibeCoding\obj\Debug\net8.0\APIexternaVibeCoding.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\S2-PC00\Documents\GitHub\APIexternaVibeCoding\APIexternaVibeCoding\obj\Debug\net8.0\APIexternaVibeCoding.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\S2-PC00\Documents\GitHub\APIexternaVibeCoding\APIexternaVibeCoding\obj\Debug\net8.0\APIexternaVibeCoding.sourcelink.json
