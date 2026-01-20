@@ -1,0 +1,6 @@
+@APIexternaVibeCoding_HostAddress = http://localhost:5159
+
+GET {{APIexternaVibeCoding_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
