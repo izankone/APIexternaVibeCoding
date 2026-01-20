@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("APIexternaVibeCoding")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0dbbf6f7b436769012de6dbf22f5ae95158c15fc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b0d81b4cdea04385797e50aa2ecbd6137e1d590")]
 [assembly: System.Reflection.AssemblyProductAttribute("APIexternaVibeCoding")]
 [assembly: System.Reflection.AssemblyTitleAttribute("APIexternaVibeCoding")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

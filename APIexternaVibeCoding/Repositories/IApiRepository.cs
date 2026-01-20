@@ -1,4 +1,3 @@
-using APIExternaVibeCoding.Models;
 using APIExternaVibeCoding.DTOs;
 namespace APIExternaVibeCoding.Repositories
 {

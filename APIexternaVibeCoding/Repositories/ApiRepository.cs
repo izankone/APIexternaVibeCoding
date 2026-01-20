@@ -1,24 +1,24 @@
 using APIExternaVibeCoding.Models;
+using APIExternaVibeCoding.DTOs; // <--- Añade esto
+using System.Net.Http.Json;
 
 namespace APIExternaVibeCoding.Repositories
 {
     public class ApiRepository : IApiRepository
     {
         private readonly HttpClient _httpClient;
+        public ApiRepository(HttpClient httpClient) => _httpClient = httpClient;
 
-        public ApiRepository(HttpClient httpClient)
+        public async Task<List<UserDto>> GetExternalUsersAsync()
         {
-            _httpClient = httpClient;
+            // Cambia <List<User>> por <List<UserDto>>
+            return await _httpClient.GetFromJsonAsync<List<UserDto>>("users") ?? new();
         }
 
-        public async Task<List<User>> GetExternalUsersAsync()
+        public async Task<List<PostDto>> GetExternalPostsAsync()
         {
-            return await _httpClient.GetFromJsonAsync<List<User>>("users") ?? new List<User>();
-        }
-
-        public async Task<List<Post>> GetExternalPostsAsync()
-        {
-            return await _httpClient.GetFromJsonAsync<List<Post>>("posts") ?? new List<Post>();
+            // Cambia <List<Post>> por <List<PostDto>>
+            return await _httpClient.GetFromJsonAsync<List<PostDto>>("posts") ?? new();
         }
     }
 }

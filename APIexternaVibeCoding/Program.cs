@@ -1,23 +1,25 @@
-using System;
+using Microsoft.EntityFrameworkCore;
 using APIExternaVibeCoding.Mappings;
 using APIExternaVibeCoding.Repositories;
+using APIExternaVibeCoding.Data; // <--- 1. IMPORTANTE: Agregada esta línea para encontrar AppDbContext
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // 1. Configuración de Servicios (Inyección de Dependencias)
-builder.Services.AddControllers(); // Habilita el uso de controladores
+builder.Services.AddControllers(); 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // 2. Configuración de la Base de Datos SQLite
-// Esto usará el AppDbContext que creaste en la carpeta Data
-// Cambia <AppContext> por <AppDbContext>
-builder.Services.AddDbContext<AppContext>(options =>
-    options.UseSqlite("Data Source=mi_api.db"));
-// Añade esto donde están los otros servicios
+// Corregido: Se cambió <AppContext> por <AppDbContext>
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Data Source=mi_api.db")); //
+
+// Configuración de AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+
 // 3. Configuración de HttpClient y el Repositorio
-// Registramos IApiRepository para que pueda ser inyectado en los controladores
 builder.Services.AddHttpClient<IApiRepository, ApiRepository>(client =>
 {
     client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com/");
@@ -33,10 +35,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
-// Importante: Esto mapea las rutas de tus controladores (ej: api/ExternalData/users)
+// Importante: Mapeo de rutas
 app.MapControllers();
 
 app.Run();
