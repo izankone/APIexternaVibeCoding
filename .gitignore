@@ -1,0 +1,23 @@
+# Archivos de compilación y salida
+bin/
+obj/
+
+# Base de datos local (SQLite)
+# Evitamos subir el archivo .db para que cada desarrollador tenga el suyo
+*.db
+*.db-shm
+*.db-wal
+
+# Herramientas de Visual Studio y VS Code
+.vs/
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Archivos de publicación
+publish/
+appsettings.Development.json
+
+# Paquetes NuGet
+*.nupkg
