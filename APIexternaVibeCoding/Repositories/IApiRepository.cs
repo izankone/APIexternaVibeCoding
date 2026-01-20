@@ -1,10 +1,10 @@
 using APIExternaVibeCoding.Models;
-
+using APIExternaVibeCoding.DTOs;
 namespace APIExternaVibeCoding.Repositories
 {
     public interface IApiRepository
-    {
-        Task<List<User>> GetExternalUsersAsync();
-        Task<List<Post>> GetExternalPostsAsync();
-    }
+{
+    Task<List<UserDto>> GetExternalUsersAsync();
+    Task<List<PostDto>> GetExternalPostsAsync();
+}
 }
