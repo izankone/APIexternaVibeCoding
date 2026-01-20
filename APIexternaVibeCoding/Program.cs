@@ -1,13 +1,31 @@
+using System;
+using APIExternaVibeCoding.Mappings;
+using APIExternaVibeCoding.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// 1. Configuración de Servicios (Inyección de Dependencias)
+builder.Services.AddControllers(); // Habilita el uso de controladores
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// 2. Configuración de la Base de Datos SQLite
+// Esto usará el AppDbContext que creaste en la carpeta Data
+// Cambia <AppContext> por <AppDbContext>
+builder.Services.AddDbContext<AppContext>(options =>
+    options.UseSqlite("Data Source=mi_api.db"));
+// Añade esto donde están los otros servicios
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+// 3. Configuración de HttpClient y el Repositorio
+// Registramos IApiRepository para que pueda ser inyectado en los controladores
+builder.Services.AddHttpClient<IApiRepository, ApiRepository>(client =>
+{
+    client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com/");
+});
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// 4. Configuración del Pipeline de HTTP
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -16,29 +34,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseAuthorization();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+// Importante: Esto mapea las rutas de tus controladores (ej: api/ExternalData/users)
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
